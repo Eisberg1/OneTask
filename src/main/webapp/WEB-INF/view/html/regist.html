@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+regist.html
+
+<div th:text="222123"></div>
+<div style="text-align: center">
+    <form action="regist" method="post" th:object="${user}">
+        <p><span>账号<input th:name="userName"></span></p>
+        <p><span> 密码<input type="password" th:name="userPassword"></span></p>
+        <p><input type="submit" th:value="提交"></p>
+    </form>
+</div>
+</body>
+</html>

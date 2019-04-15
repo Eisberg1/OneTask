@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ReportDAO">
+    <sql id="report_column">
+        r_id as rId,
+        r_name as rName,
+        r_y as rY,
+        r_x as rX
+    </sql>
+    <!--<include refid="report_column"/>-->
+    <insert id="insertBatch" parameterType="Report">
+        insert into t_report(r_id,r_name,r_y,r_x) values
+        <foreach collection="list" item="report"  separator="," index="index" >
+            (#{report.rId},#{report.rName},#{report.rY},#{report.rX})
+        </foreach>
+    </insert>
+
+</mapper>

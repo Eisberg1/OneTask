@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.BookDAO">
+    <sql id="book_column">
+        book_id as bookId,
+        book_name as bookName,
+        book_price as bookPrice
+    </sql>
+
+    <insert id="insert" parameterType="book">
+      insert into t_book values(#{bookId},#{bookName},#{bookPrice})
+    </insert>
+
+    <select id="getBooks" resultType="book">
+      select <include refid="book_column"/> from t_book
+    </select>
+
+
+</mapper>
